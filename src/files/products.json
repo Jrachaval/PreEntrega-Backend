@@ -1,0 +1,42 @@
+[
+    {
+		"id": 1,
+		"title": "Monitor Samsung 144hz",
+		"description": "Gaming, render, color",
+		"code": "SMG5080",
+		"price": 123,
+		"status": true,
+		"stock": 10,
+		"category": "Monitores"
+	},
+	{
+		"id": 2,
+		"title": "Monitor LG 144hz",
+		"description": "Gaming, render, color",
+		"code": "LGM4679",
+		"price": 120,
+		"status": true,
+		"stock": 18,
+		"category": "Monitores"
+	},
+	{
+		"id": 3,
+		"title": "Monitor Samsung 60hz",
+		"description": "TV, PC, AUDIO",
+		"code": "SMG6030",
+		"price": 60,
+		"status": true,
+		"stock": 22,
+		"category": "Monitores"
+	},
+	{
+		"id": 4,
+		"title": "Monitor LG 60hz",
+		"description": "TV, PC, AUDIO",
+		"code": "LGM6655",
+		"price": 70,
+		"status": true,
+		"stock": 30,
+		"category": "Monitores"
+	}
+]
