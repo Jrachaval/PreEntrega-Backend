@@ -77,22 +77,70 @@ router.post ('/', async (req,res)=>{
 	}
 	
 
+});
 
-})
+	const schemaPutMethod = Joi.object({
+    title: Joi.string(),
+    description: Joi.string(),
+    code: Joi.string(),
+    price: Joi.number(),
+    status: Joi.boolean(),
+    stock: Joi.number(),
+    category: Joi.string(),
+	thumbnails: Joi.array().items(Joi.string()),
+});
 
 
 
-router.put ('/', async (req,res)=>{
 
-    
-    
+router.put ("/:pid", async (req,res)=>{
+	try {
+		const data = await fs.promises.readFile(pathProducts, 'utf-8');
+		let products = JSON.parse(data);
+	
+		const { pid } = req.params;
+		const productUpdated = products.find((product) => product.id == pid);
+		if (productUpdated) {
+		const { error, value } = schemaPutMethod.validate(req.body);
+		if (error) {
+			res.status(400).json({ error: error.details[0].message });
+		} else {
+			Object.assign(productUpdated, value);
+			await fs.promises.writeFile(pathProducts, JSON.stringify(products, null, '\t'));
+			return res.json(productUpdated);
+		}
+		} else {
+		res.status(404).json({ error: "Producto no encontrado" });
+		}
+	} catch (error) {
+		console.error('error al leer el archivo', error);
+		res.status(500).json({ error: 'error al leer el archivo' });
+	}
+
+        
    
-})
+});
 
-router.delete ('/', async (req,res)=>{
+router.delete ("/:pid", async (req,res)=>{
+	try {
+		const data = await fs.promises.readFile(pathProducts, 'utf-8');
+		const products = JSON.parse(data);
+		
+		const { pid } = req.params;
+		const productDeleted = products.find((product) => product.id == pid );
+		if (productDeleted) {
+			products.splice(products.indexOf(productDeleted), 1);
+			await fs.promises.writeFile(pathProducts, JSON.stringify(products, null, '\t'));
+			return res.sendStatus(204);
+		}
+		res.status(404).json({ error: "Producto no encontrado" });
+	} catch (error) {
+		console.error('error al leer el archivo', error);
+		res.status(500).json({ error: 'error al leer el archivo' });
+}
 
     
   
-})
+});
 
 export default router;

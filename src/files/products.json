@@ -1,5 +1,5 @@
 [
-    {
+	{
 		"id": 1,
 		"title": "Monitor Samsung 144hz",
 		"description": "Gaming, render, color",
@@ -14,7 +14,7 @@
 		"title": "Monitor LG 144hz",
 		"description": "Gaming, render, color",
 		"code": "LGM4679",
-		"price": 120,
+		"price": 125,
 		"status": true,
 		"stock": 18,
 		"category": "Monitores"
@@ -37,6 +37,26 @@
 		"price": 70,
 		"status": true,
 		"stock": 30,
+		"category": "Monitores"
+	},
+	{
+		"id": 5,
+		"title": "Monitor Samsung 244hz",
+		"description": "Gaming, render, color",
+		"code": "SMG530",
+		"price": 163,
+		"status": true,
+		"stock": 10,
+		"category": "Monitores"
+	},
+	{
+		"id": 6,
+		"title": "Monitor Viewsonic 144hz",
+		"description": "TV, PC, AUDIO",
+		"code": "VSM6875",
+		"price": 190,
+		"status": true,
+		"stock": 20,
 		"category": "Monitores"
 	}
 ]
